@@ -73,14 +73,14 @@ function RegisterScreen(props) {
 
 
     return (
-        <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: "center", backgroundColor: Colors.lightWhite }}>
+        <Screen style={styles.screen}>
             <LoadingModal show={indicator} />
 
             {/* Top Image */}
-            <Image style={{ width: RFPercentage(40), height: RFPercentage(40), marginTop: RFPercentage(2) }} source={require('../../assets/images/top.png')} />
+            <Image style={styles.topImage} source={require('../../assets/images/top.png')} />
 
             {/* Buttons */}
-            <View style={{ width: '100%', height: RFPercentage(8.2), backgroundColor: Colors.lightGrey, flexDirection: 'row' }} >
+            <View style={styles.topButtonsContainer} >
                 <TouchableOpacity activeOpacity={0.8} onPress={() => setActiveButton('1')} style={{ position: 'absolute', left: 0, justifyContent: 'center', alignItems: 'center', backgroundColor: activeButton == '1' ? Colors.secondary : Colors.lightGrey, width: '50%', height: '100%' }} >
                     {activeButton == '1' ?
                         <View style={{ width: '100%', height: RFPercentage(0.6), position: 'absolute', top: 0, backgroundColor: Colors.primary }} />
@@ -111,14 +111,14 @@ function RegisterScreen(props) {
                     {activeButton == '1' ?
                         <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center' }} >
                             {/* Heading */}
-                            <View style={{ width: '90%', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', marginTop: RFPercentage(3) }} >
+                            <View style={styles.heading} >
                                 <Text style={{ fontSize: RFPercentage(2.5), fontWeight: Platform.OS == 'ios' ? '700' : 'bold', color: Colors.black }} >
                                     Welcome Back!
                                 </Text>
                             </View>
 
                             {/* Input fields */}
-                            <View style={{ marginTop: RFPercentage(3), justifyContent: 'center', alignItems: 'center', width: '80%' }}>
+                            <View style={styles.inputFieldConatiner}>
                                 {inputField.map((item, i) => (
                                     <View key={i} style={{ marginTop: i === 0 ? RFPercentage(-2) : RFPercentage(0.6) }} >
                                         <InputField
@@ -178,21 +178,21 @@ function RegisterScreen(props) {
                             </View>
 
                             {/* Heading */}
-                            <View style={{ width: '90%', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', marginTop: RFPercentage(3) }} >
+                            <View style={styles.heading} >
                                 <Text style={{ fontSize: RFPercentage(2.5), fontWeight: Platform.OS == 'ios' ? '700' : 'bold', color: Colors.black }} >
                                     Continue with Socials
                                 </Text>
                             </View>
 
-                            <View style={{ width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: RFPercentage(2) }} >
+                            <View style={styles.socialLinksContainer} >
                                 {/* google */}
-                                <TouchableOpacity activeOpacity={0.8} style={{ position: 'absolute', left: 0, width: RFPercentage(16), height: RFPercentage(5.6), borderRadius: RFPercentage(1), backgroundColor: '#03a9f7', justifyContent: 'center', alignItems: 'center' }}>
+                                <TouchableOpacity activeOpacity={0.8} style={styles.google}>
                                     <FontAwesome name="google" style={{ fontSize: RFPercentage(3) }} color={Colors.white} />
                                 </TouchableOpacity>
-                                <TouchableOpacity activeOpacity={0.8} style={{ width: RFPercentage(16), height: RFPercentage(5.6), borderRadius: RFPercentage(1), backgroundColor: '#3b5999', justifyContent: 'center', alignItems: 'center' }}>
+                                <TouchableOpacity activeOpacity={0.8} style={styles.facebook}>
                                     <FontAwesome name="facebook-f" style={{ fontSize: RFPercentage(3) }} color={Colors.white} />
                                 </TouchableOpacity >
-                                <TouchableOpacity activeOpacity={0.8} style={{ position: 'absolute', right: 0, width: RFPercentage(16), height: RFPercentage(5.6), borderRadius: RFPercentage(1), backgroundColor: '#242424', justifyContent: 'center', alignItems: 'center' }}>
+                                <TouchableOpacity activeOpacity={0.8} style={styles.apple}>
                                     <FontAwesome name="apple" style={{ fontSize: RFPercentage(3) }} color={Colors.white} />
                                 </TouchableOpacity>
                             </View>
@@ -210,6 +210,36 @@ function RegisterScreen(props) {
 
 const styles = StyleSheet.create({
 
+    screen: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: "center",
+        backgroundColor: Colors.lightWhite
+    },
+    topImage: {
+        width: RFPercentage(40),
+        height: RFPercentage(40),
+        marginTop: RFPercentage(2)
+    },
+    heading: {
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        alignSelf: 'center',
+        marginTop: RFPercentage(3)
+    },
+    inputFieldConatiner: {
+        marginTop: RFPercentage(3),
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '80%'
+    },
+    topButtonsContainer: {
+        width: '100%',
+        height: RFPercentage(8.2),
+        backgroundColor: Colors.lightGrey,
+        flexDirection: 'row'
+    },
     forgetRememberContainer: {
         marginTop: RFPercentage(1.5),
         width: '90%',
@@ -244,6 +274,41 @@ const styles = StyleSheet.create({
         fontSize: RFPercentage(2),
         fontWeight: '600',
         marginLeft: RFPercentage(2)
+    },
+    socialLinksContainer: {
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginTop: RFPercentage(2)
+    },
+    google: {
+        position: 'absolute',
+        left: 0,
+        width: RFPercentage(16),
+        height: RFPercentage(5.6),
+        borderRadius: RFPercentage(1),
+        backgroundColor: '#03a9f7',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    facebook: {
+        width: RFPercentage(16),
+        height: RFPercentage(5.6),
+        borderRadius: RFPercentage(1),
+        backgroundColor: '#3b5999',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    apple: {
+        position: 'absolute',
+        right: 0,
+        width: RFPercentage(16),
+        height: RFPercentage(5.6),
+        borderRadius: RFPercentage(1),
+        backgroundColor: '#242424',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 
