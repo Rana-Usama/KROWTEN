@@ -4,6 +4,7 @@ export default {
     lightGrey: "#eeeeee",
     secondary: '#e1f2ef',
     darkGrey: '#898989',
+    darkBlack: '#242424',
     newInputFieldBorder: '#DEDEDE',
     twoButtons: '#F5F5F5',
     blue: '#3A82FF',
