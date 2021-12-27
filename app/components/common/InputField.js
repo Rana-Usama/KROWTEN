@@ -59,9 +59,9 @@ function InputField({
 
 
             {secure ?
-                <Image style={{ position: 'absolute', left: RFPercentage(5), width: RFPercentage(2, 5), height: RFPercentage(2.6) }} source={leftImageSource} />
+                <Image style={{ position: 'absolute', left: RFPercentage(5), width: RFPercentage(2), height: RFPercentage(2.7) }} source={leftImageSource} />
                 :
-                <Image style={{ position: 'absolute', left: RFPercentage(5), width: RFPercentage(3.2), height: RFPercentage(2.2) }} source={leftImageSource} />
+                <Image style={{ position: 'absolute', left: RFPercentage(5), width: RFPercentage(3.2), height: RFPercentage(2.3) }} source={leftImageSource} />
 
             }
 
@@ -117,7 +117,7 @@ function InputField({
             {secure ? (
                 <TouchableOpacity onPress={() => setEyeIcon(!eyeIcon)} style={{ position: "absolute", right: RFPercentage(1), }}>
                     <MaterialCommunityIcons
-                        color={eyeIcon ? "#242424" : Colors.inputFieldBorder}
+                        color={eyeIcon ? "#4c4c4c" : "#4c4c4c"}
                         style={{ right: RFPercentage(1) }}
                         size={RFPercentage(3)}
                         name={eyeIcon ? "eye-outline" : "eye-off-outline"}
