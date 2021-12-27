@@ -79,7 +79,7 @@ function RegisterScreen(props) {
             {/* Top Image */}
             <Image style={styles.topImage} source={require('../../assets/images/top.png')} />
 
-            {/* Buttons */}
+            {/*Top Buttons */}
             <View style={styles.topButtonsContainer} >
                 <TouchableOpacity activeOpacity={0.8} onPress={() => setActiveButton('1')} style={{ position: 'absolute', left: 0, justifyContent: 'center', alignItems: 'center', backgroundColor: activeButton == '1' ? Colors.secondary : Colors.lightGrey, width: '50%', height: '100%' }} >
                     {activeButton == '1' ?
