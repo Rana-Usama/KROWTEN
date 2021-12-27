@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
-import { View, Text, Image, ImageBackground, TouchableOpacity, Platform } from 'react-native'
+import { View, Text, Image, ImageBackground, TouchableOpacity, Platform, StyleSheet, ScrollView } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize';
+import { FontAwesome } from '@expo/vector-icons';
 
 //components
 import Screen from './../components/Screen';
 import InputField from './../components/common/InputField';
+import MyAppButton from './../components/common/MyAppButton';
+import LoadingModal from './../components/common/LoadingMdal';
 
 //config
 import Colors from '../config/Colors';
 
 function RegisterScreen(props) {
 
+    const [indicator, showIndicator] = useState(false);
+
     const [activeButton, setActiveButton] = useState('1');
+
+    const [tick, setTick] = useState(false);
 
     const [inputField, SetInputField] = useState([
         {
@@ -44,9 +51,31 @@ function RegisterScreen(props) {
 
     };
 
+    const handleLogin = () => {
+        showIndicator(true);
+        let tempfeilds = [...inputField];
+
+        if (tempfeilds[0].value === "" || tempfeilds[1].value === "") {
+            alert("Please fill all the feilds");
+            showIndicator(false);
+            return true;
+        }
+
+        try {
+            // API integration
+        } catch (error) {
+            alert("Error");
+        }
+
+        showIndicator(false);
+    };
+
+
 
     return (
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: "center", backgroundColor: Colors.lightWhite }}>
+            <LoadingModal show={indicator} />
+
             {/* Top Image */}
             <Image style={{ width: RFPercentage(40), height: RFPercentage(40), marginTop: RFPercentage(2) }} source={require('../../assets/images/top.png')} />
 
@@ -75,47 +104,148 @@ function RegisterScreen(props) {
                 </TouchableOpacity>
             </View>
 
-            {activeButton == '1' ?
-                <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center' }} >
-                    {/* Heading */}
-                    <View style={{ width: '90%', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', marginTop: RFPercentage(3) }} >
-                        <Text style={{ fontSize: RFPercentage(2.5), fontWeight: Platform.OS == 'ios' ? '700' : 'bold', color: Colors.black }} >
-                            Welcome Back!
-                        </Text>
-                    </View>
+            {/* Scroll starts */}
+            <ScrollView style={{ flex: 1, width: '100%' }} >
+                <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
 
-                    {/* Input fields */}
-                    <View style={{ marginTop: RFPercentage(3), justifyContent: 'center', alignItems: 'center', width: '80%' }}>
+                    {activeButton == '1' ?
+                        <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center' }} >
+                            {/* Heading */}
+                            <View style={{ width: '90%', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', marginTop: RFPercentage(3) }} >
+                                <Text style={{ fontSize: RFPercentage(2.5), fontWeight: Platform.OS == 'ios' ? '700' : 'bold', color: Colors.black }} >
+                                    Welcome Back!
+                                </Text>
+                            </View>
 
-                        {inputField.map((item, i) => (
-                            <View key={i} style={{ marginTop: i === 0 ? RFPercentage(-2) : RFPercentage(0.6) }} >
-                                <InputField
-                                    placeholder={item.placeholder}
-                                    backgroundColor={Colors.lightGrey}
-                                    leftImageSource={item.leftImage}
-                                    borderWidth={RFPercentage(0.5)}
-                                    borderColor={Colors.lightGrey}
-                                    borderBottomColor={item.borderBottomColor}
-                                    borderRightColor={item.borderRightColor}
-                                    borderTopColor={item.borderTopColor}
-                                    borderLeftColor={item.borderLeftColor}
-                                    height={RFPercentage(8.3)}
-                                    secure={item.secure}
+                            {/* Input fields */}
+                            <View style={{ marginTop: RFPercentage(3), justifyContent: 'center', alignItems: 'center', width: '80%' }}>
+                                {inputField.map((item, i) => (
+                                    <View key={i} style={{ marginTop: i === 0 ? RFPercentage(-2) : RFPercentage(0.6) }} >
+                                        <InputField
+                                            placeholder={item.placeholder}
+                                            backgroundColor={Colors.lightGrey}
+                                            leftImageSource={item.leftImage}
+                                            borderWidth={RFPercentage(0.5)}
+                                            borderColor={Colors.lightGrey}
+                                            borderBottomColor={item.borderBottomColor}
+                                            borderRightColor={item.borderRightColor}
+                                            borderTopColor={item.borderTopColor}
+                                            borderLeftColor={item.borderLeftColor}
+                                            height={RFPercentage(8.3)}
+                                            secure={item.secure}
+                                            borderRadius={RFPercentage(1)}
+                                            fontSize={RFPercentage(2)}
+                                            handleFeild={(text) => handleChange(text, i)}
+                                            value={item.value}
+                                            width={"100%"}
+                                        />
+                                    </View>
+                                ))}
+                            </View>
+
+                            {/* Forget Remember */}
+                            <View style={styles.forgetRememberContainer}>
+                                {/* Check Box */}
+                                <TouchableOpacity onPress={() => setTick(true)} activeOpacity={0.5} style={styles.checkBox}>
+                                    {tick ?
+                                        <TouchableOpacity style={{ width: '100%', justifyContent: 'center', alignItems: 'center' }} onPress={() => setTick(false)}>
+                                            <Image style={{ width: RFPercentage(1.2), height: RFPercentage(1) }} source={require('../../assets/images/tick2.png')} />
+                                        </TouchableOpacity>
+                                        : null}
+                                </TouchableOpacity>
+                                <Text style={styles.rememberMe}>
+                                    Remember Me
+                                </Text>
+                                <TouchableOpacity activeOpacity={0.5} style={{ position: 'absolute', right: 0, }}>
+                                    <Text style={{ fontWeight: Platform.OS == 'android' ? 'bold' : '700', fontSize: RFPercentage(1.8), color: Colors.primary }}>
+                                        Forget Password?
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+
+                            {/* Button */}
+                            <View style={{ marginTop: RFPercentage(2), width: '90%', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row' }} >
+                                <MyAppButton
+                                    title="Sign In"
+                                    padding={RFPercentage(1.8)}
+                                    onPress={() => handleLogin()}
+                                    backgroundColor={Colors.primary}
+                                    color={Colors.white}
+                                    bold={false}
                                     borderRadius={RFPercentage(1)}
-                                    fontSize={RFPercentage(2)}
-                                    handleFeild={(text) => handleChange(text, i)}
-                                    value={item.value}
-                                    width={"100%"}
+                                    width={"50%"}
                                 />
                             </View>
-                        ))}
-                    </View>
+
+                            {/* Heading */}
+                            <View style={{ width: '90%', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', marginTop: RFPercentage(3) }} >
+                                <Text style={{ fontSize: RFPercentage(2.5), fontWeight: Platform.OS == 'ios' ? '700' : 'bold', color: Colors.black }} >
+                                    Continue with Socials
+                                </Text>
+                            </View>
+
+                            <View style={{ width: '90%', justifyContent: 'center', alignItems: 'center', alignSelf: 'center', marginTop: RFPercentage(2) }} >
+                                {/* google */}
+                                <TouchableOpacity activeOpacity={0.8} style={{ position: 'absolute', left: 0, width: RFPercentage(16), height: RFPercentage(5.6), borderRadius: RFPercentage(1), backgroundColor: '#03a9f7', justifyContent: 'center', alignItems: 'center' }}>
+                                    <FontAwesome name="google" style={{ fontSize: RFPercentage(3) }} color={Colors.white} />
+                                </TouchableOpacity>
+                                <TouchableOpacity activeOpacity={0.8} style={{ width: RFPercentage(16), height: RFPercentage(5.6), borderRadius: RFPercentage(1), backgroundColor: '#3b5999', justifyContent: 'center', alignItems: 'center' }}>
+                                    <FontAwesome name="facebook-f" style={{ fontSize: RFPercentage(3) }} color={Colors.white} />
+                                </TouchableOpacity >
+                                <TouchableOpacity activeOpacity={0.8} style={{ position: 'absolute', right: 0, width: RFPercentage(16), height: RFPercentage(5.6), borderRadius: RFPercentage(1), backgroundColor: '#242424', justifyContent: 'center', alignItems: 'center' }}>
+                                    <FontAwesome name="apple" style={{ fontSize: RFPercentage(3) }} color={Colors.white} />
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ marginBottom: RFPercentage(5) }} />
+                        </View>
+                        :
+                        null
+                    }
+
                 </View>
-                :
-                null
-            }
+            </ScrollView>
         </Screen>
     );
 }
+
+const styles = StyleSheet.create({
+
+    forgetRememberContainer: {
+        marginTop: RFPercentage(1.5),
+        width: '90%',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    },
+    checkBox: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: RFPercentage(2.5),
+        height: RFPercentage(2.5),
+        borderRadius: RFPercentage(0.5),
+        borderColor: Colors.primary,
+        borderWidth: RFPercentage(0.09),
+        backgroundColor: Colors.white
+    },
+    rememberMe: {
+        marginLeft: RFPercentage(1),
+        fontSize: RFPercentage(1.8),
+        color: '#242424'
+    },
+    dontHaveAnAccount: {
+        position: "absolute",
+        bottom: RFPercentage(4),
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    signUpText: {
+        color: Colors.primary,
+        fontSize: RFPercentage(2),
+        fontWeight: '600',
+        marginLeft: RFPercentage(2)
+    }
+})
+
 
 export default RegisterScreen
