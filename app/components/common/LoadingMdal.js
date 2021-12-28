@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, View, ActivityIndicator, Dimensions } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
+
 const windowHeight = Dimensions.get('window').height
 
 // config
