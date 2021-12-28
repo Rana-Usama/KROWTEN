@@ -5,6 +5,7 @@ export default {
     secondary: '#e1f2ef',
     darkGrey: '#898989',
     darkBlack: '#242424',
+    pink: '#FF6868',
     newInputFieldBorder: '#DEDEDE',
     twoButtons: '#F5F5F5',
     blue: '#3A82FF',
