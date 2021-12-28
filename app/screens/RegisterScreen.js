@@ -61,6 +61,8 @@ function RegisterScreen(props) {
             return true;
         }
 
+        props.navigation.navigate("HomeDrawer")
+
         try {
             // API integration
         } catch (error) {
@@ -69,8 +71,6 @@ function RegisterScreen(props) {
 
         showIndicator(false);
     };
-
-
 
     return (
         <Screen style={styles.screen}>
