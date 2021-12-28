@@ -2,26 +2,25 @@ import React, { useState } from 'react';
 import { View, Text, ImageBackground, Image, TouchableOpacity, StyleSheet, Platform, ScrollView } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { Entypo } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+
+//components
+import ClickButtons from './../components/common/ClickButtons';
+import Screen from './../components/Screen';
 
 //config
 import Colors from '../config/Colors';
-
-//components
-import Screen from './../components/Screen';
+import BottomTab from '../components/common/BottomTab';
 
 function HomeScreen(props) {
-
-    const [color, setColor] = useState('0');
 
     const cartData = [
         {
             thumbnail: require('../../assets/images/cart1.png'),
             dpSource: require('../../assets/images/f7.png'),
             mainTitle: 'Annete Black',
-            subTitle: 'Charleston West Virginia'
+            subTitle: 'Charleston West Virginia',
+            firstIcon: 'heart',
+            firstTitle: ''
         },
         {
             thumbnail: require('../../assets/images/cart2.png'),
@@ -62,14 +61,13 @@ function HomeScreen(props) {
                 </TouchableOpacity>
             </View>
 
-
-
             {/* Scroll starts */}
             <ScrollView style={{ flex: 1, width: '100%' }} >
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+
                     {/* cart */}
                     {cartData.map((item, i) => (
-                        <View key={i} style={{ marginTop: RFPercentage(6), width: '92%', height: RFPercentage(50), borderRadius: RFPercentage(3), backgroundColor: '#F4F4F4', justifyContent: 'flex-start', alignItems: 'center', alignSelf: 'center' }} >
+                        <View key={i} style={{ marginTop: i == 0 ? RFPercentage(6) : RFPercentage(3), width: '92%', height: RFPercentage(54), borderRadius: RFPercentage(3), backgroundColor: '#F4F4F4', justifyContent: 'flex-start', alignItems: 'center', alignSelf: 'center' }} >
 
                             {/* Thumbnail */}
                             <TouchableOpacity activeOpacity={0.6} style={{ marginTop: RFPercentage(1.5) }} >
@@ -97,33 +95,16 @@ function HomeScreen(props) {
                                 </TouchableOpacity>
                             </View>
 
-                            {/* Liked Buttons */}
-                            <View style={{ marginTop: RFPercentage(2.4), width: '85%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                                <TouchableOpacity onPress={() => setColor('1')} activeOpacity={0.8} style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', position: 'absolute', left: 0 }} >
-                                    <FontAwesome name="heart" style={{ fontSize: RFPercentage(2.3) }} color={color == '1' ? Colors.pink : Colors.black} />
-                                    <Text style={{ marginLeft: RFPercentage(1), fontSize: RFPercentage(2.2), color: color == '1' ? Colors.pink : Colors.black }} >
-                                        Liked
-                                    </Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() => setColor('2')} activeOpacity={0.8} style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }} >
-                                    <MaterialCommunityIcons name="comment" style={{ fontSize: RFPercentage(2.3) }} color={color == '2' ? Colors.pink : Colors.black} />
-                                    <Text style={{ marginLeft: RFPercentage(1), fontSize: RFPercentage(2.2), color: color == '2' ? Colors.pink : Colors.black }} >
-                                        Comment
-                                    </Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() => setColor('3')} activeOpacity={0.8} style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', position: 'absolute', right: 0 }} >
-                                    <Ionicons name="share-social-outline" style={{ fontSize: RFPercentage(2.3) }} color={color == '3' ? Colors.pink : Colors.black} />
-                                    <Text style={{ marginLeft: RFPercentage(1), fontSize: RFPercentage(2.2), color: color == '3' ? Colors.pink : Colors.black }} >
-                                        Share
-                                    </Text>
-                                </TouchableOpacity>
-                            </View>
+                            {/* Like/comment Buttons */}
+                            <ClickButtons />
                         </View>
                     ))}
-
+                    <View style={{ marginBottom: RFPercentage(12) }} />
                 </View>
             </ScrollView>
 
+            {/* Bottom Tab */}
+            <BottomTab props={props} />
         </Screen >
     );
 }
