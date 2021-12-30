@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, ImageBackground, TouchableOpacity, ScrollView, StyleSheet, Platform } from 'react-native'
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet, Platform } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
