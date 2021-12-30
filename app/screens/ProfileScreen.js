@@ -20,7 +20,7 @@ function ProfileScreen(props) {
             {/* Nav */}
             <ImageBackground style={styles.navContauner} source={require('../../assets/images/navbar.png')}>
                 <View style={styles.navSubContainer}>
-                    <TouchableOpacity activeOpacity={0.7}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("HomeScreen")} activeOpacity={0.7}>
                         <Ionicons name="chevron-back" style={{ fontSize: RFPercentage(2.8) }} color={Colors.white} />
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={0.7} style={{ position: 'absolute', right: 0 }}>

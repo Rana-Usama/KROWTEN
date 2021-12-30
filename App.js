@@ -35,7 +35,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="ProfileScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="RegisterScreen">
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
         <Stack.Screen name="ConnectScreen" component={ConnectScreen} />
         <Stack.Screen name="HomeDrawer" component={HomeDrawer} />

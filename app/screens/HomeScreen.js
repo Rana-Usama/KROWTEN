@@ -30,26 +30,6 @@ function HomeScreen(props) {
         },
     ]
 
-    const cartsData = [
-        {
-            cart1: require('../../assets/images/c1.png'),
-            cart2: require('../../assets/images/c2.png'),
-            title: 'Space Name (ABC)'
-        },
-        {
-            cart1: require('../../assets/images/c3.png'),
-            cart2: require('../../assets/images/c4.png'),
-            title: 'Space Name (ABC)'
-        },
-        {
-            cart1: require('../../assets/images/c5.png'),
-            cart2: require('../../assets/images/c6.png'),
-            title: 'Space Name (ABC)'
-        },
-
-    ]
-
-
     const leftColData = [
         {
             imageSource: require('../../assets/images/col1.png'),
@@ -98,7 +78,7 @@ function HomeScreen(props) {
             {/* Nav */}
             <View style={styles.navContainer} >
                 {/* Image */}
-                <TouchableOpacity activeOpacity={0.8} >
+                <TouchableOpacity onPress={() => props.navigation.navigate("ProfileScreen")} activeOpacity={0.8} >
                     <ImageBackground style={{ width: RFPercentage(9), height: RFPercentage(9) }} source={require('../../assets/images/profile.png')} />
                 </TouchableOpacity>
                 <View style={{ marginLeft: RFPercentage(1.5) }} >
