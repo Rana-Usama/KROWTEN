@@ -29,7 +29,7 @@ function SearchRecommendationScreen(props) {
 
     const leftColData = [
         {
-            imageSource: require('../../assets/images/col1.png'),
+            imageSource: require('../../assets/images/col11.png'),
             height: RFPercentage(28),
             title: 'The Iron Man'
         },
@@ -39,7 +39,7 @@ function SearchRecommendationScreen(props) {
             title: 'Black Hawk'
         },
         {
-            imageSource: require('../../assets/images/col3.png'),
+            imageSource: require('../../assets/images/col31.png'),
             height: RFPercentage(26),
             title: 'Mickey'
         },
@@ -47,7 +47,7 @@ function SearchRecommendationScreen(props) {
     ]
     const rightColData = [
         {
-            imageSource: require('../../assets/images/col4.png'),
+            imageSource: require('../../assets/images/col41.png'),
             height: RFPercentage(40),
             title: 'The Iron Man'
         },

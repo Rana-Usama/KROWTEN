@@ -75,7 +75,7 @@ function AddMemberScreen(props) {
 
             {/* Nav */}
             <View style={styles.navContainer} >
-                <TouchableOpacity activeOpacity={0.6}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('HomeScreen')} activeOpacity={0.6}>
                     <Ionicons name="chevron-back" style={{ fontSize: RFPercentage(3.2) }} color={Colors.darkBlack} />
                 </TouchableOpacity>
                 {/* Button */}

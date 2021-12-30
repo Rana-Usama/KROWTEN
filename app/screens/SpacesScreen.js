@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, ImageBackground, TouchableOpacity, StyleSheet, Platform, ScrollView } from 'react-native';
+import { View, Text, ImageBackground, TouchableOpacity, StyleSheet, Platform, ScrollView } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -38,7 +38,7 @@ function SpacesScreen(props) {
 
             {/* Nav */}
             <View style={styles.navContainer} >
-                <TouchableOpacity activeOpacity={0.6} style={{ position: 'absolute', left: 0 }}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('HomeScreen')} activeOpacity={0.6} style={{ position: 'absolute', left: 0 }}>
                     <Ionicons name="chevron-back" style={{ fontSize: RFPercentage(3.2) }} color={Colors.darkBlack} />
                 </TouchableOpacity>
                 <Text style={{ color: Colors.darkBlack, fontSize: RFPercentage(2.8), fontWeight: Platform.OS == 'android' ? 'bold' : '600' }} >
@@ -98,6 +98,13 @@ function SpacesScreen(props) {
                             </TouchableOpacity>
                         </View>
                     ))}
+
+                    {/* Create space button */}
+                    <TouchableOpacity activeOpacity={0.8} style={{ marginTop: RFPercentage(3.5), width: RFPercentage(24), height: RFPercentage(5.5), justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.primary, borderRadius: RFPercentage(3) }} >
+                        <Text style={{ color: Colors.white, fontSize: RFPercentage(2.2) }} >
+                            + Create Space
+                        </Text>
+                    </TouchableOpacity>
 
                     <View style={{ marginBottom: RFPercentage(12) }} />
                 </View>

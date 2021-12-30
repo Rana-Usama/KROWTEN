@@ -10,27 +10,27 @@ function AppDrawer({ navigation }) {
         {
             id: 0,
             label: "Bookmarks",
-            path: "ProfileScreen"
+            // path: "ProfileScreen"
         },
         {
             id: 1,
             label: "History",
-            path: "MyChannelScreen"
+            // path: "MyChannelScreen"
         },
         {
             id: 3,
             label: "History",
-            path: "NotificationsScreen"
+            // path: "NotificationsScreen"
         },
         {
             id: 4,
             label: "Settings",
-            path: "AdvertisementScreen"
+            // path: "AdvertisementScreen"
         },
         {
             id: 5,
             label: "Messages",
-            path: "HomeScreen"
+            // path: "HomeScreen"
         },
         {
             id: 6,
@@ -75,7 +75,7 @@ function AppDrawer({ navigation }) {
                 {/* Logout */}
                 <View style={{ marginLeft: RFPercentage(0.6), marginTop: RFPercentage(3.3), justifyContent: 'center', alignItems: "center", flexDirection: 'row' }} >
                     <View style={{ alignItems: "center", width: "70%" }} >
-                        <TouchableOpacity onPress={() => { navigation.navigate('SignInScreen') }} activeOpacity={0.7} style={{ alignSelf: "flex-start", flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                        <TouchableOpacity onPress={() => { navigation.navigate('RegisterScreen') }} activeOpacity={0.7} style={{ alignSelf: "flex-start", flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                             <Text style={{ marginLeft: RFPercentage(1), color: Colors.black, fontSize: RFPercentage(2.2) }} >
                                 Logout
                             </Text>
