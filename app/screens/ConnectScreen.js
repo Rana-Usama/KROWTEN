@@ -17,7 +17,7 @@ function ConnectScreen(props) {
         <Screen style={styles.screen}>
 
             {/* Nav */}
-            <View style={{ marginTop: RFPercentage(2.5), width: '90%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
+            <View style={styles.navContainer} >
                 <TouchableOpacity activeOpacity={0.6} style={{ position: 'absolute', left: 0 }}>
                     <Ionicons name="chevron-back" style={{ fontSize: RFPercentage(3.2) }} color={Colors.darkBlack} />
                 </TouchableOpacity>
@@ -34,7 +34,7 @@ function ConnectScreen(props) {
 
             {/* Body Connect Image */}
             <TouchableOpacity activeOpacity={0.8} >
-                <Image style={{ marginTop: RFPercentage(18), width: RFPercentage(36.2), height: RFPercentage(38.9) }} source={require('../../assets/images/path.png')} />
+                <Image style={styles.bodyImage} source={require('../../assets/images/path.png')} />
             </TouchableOpacity>
 
             {/*Edit profile Button */}
@@ -63,6 +63,19 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: "center",
         backgroundColor: Colors.lightWhite
+    },
+    navContainer: {
+        marginTop: RFPercentage(2.5),
+        width: '90%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center'
+    },
+    bodyImage: {
+        marginTop: RFPercentage(18),
+        width: RFPercentage(36.2),
+        height: RFPercentage(38.9)
     }
 })
 

@@ -68,8 +68,8 @@ function ProfileScreen(props) {
 
                     {/* Line */}
                     <View style={{ marginTop: RFPercentage(1), backgroundColor: Colors.newInputFieldBorder, width: '100%', height: RFPercentage(0.1), marginBottom: RFPercentage(2) }} />
-                    {/* Uplaods and followers text*/}
 
+                    {/* Uplaods and followers text*/}
                     <View style={{ width: '96%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                         {/* saperator */}
                         <View style={{ position: 'absolute', left: RFPercentage(5), justifyContent: 'center', alignItems: 'center' }}>
@@ -120,7 +120,25 @@ function ProfileScreen(props) {
                     </View>
                 </View>
 
-                <View style={{ marginBottom: RFPercentage(5) }} />
+                <View style={{ width: '94%', marginTop: RFPercentage(2), flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', alignSelf: 'center' }} >
+                    <TouchableOpacity activeOpacity={0.8}>
+                        <ImageBackground style={{ overflow: 'hidden', width: RFPercentage(32), height: RFPercentage(20), borderRadius: RFPercentage(2) }} source={require('../../assets/images/p1.png')} />
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity={0.8} style={{ position: 'absolute', right: 0 }} >
+
+                        <ImageBackground style={{ overflow: 'hidden', width: RFPercentage(20), height: RFPercentage(20), borderRadius: RFPercentage(2) }} source={require('../../assets/images/p2.png')} />
+                    </TouchableOpacity>
+                </View>
+                <View style={{ width: '94%', marginTop: RFPercentage(1), flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', alignSelf: 'center' }} >
+                    <TouchableOpacity activeOpacity={0.8}>
+                        <ImageBackground style={{ overflow: 'hidden', width: RFPercentage(20), height: RFPercentage(20), borderRadius: RFPercentage(2) }} source={require('../../assets/images/p3.png')} />
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity={0.8} style={{ position: 'absolute', right: 0 }} >
+                        <ImageBackground style={{ overflow: 'hidden', width: RFPercentage(32), height: RFPercentage(20), borderRadius: RFPercentage(2) }} source={require('../../assets/images/p4.png')} />
+                    </TouchableOpacity>
+                </View>
+
+                <View style={{ marginBottom: RFPercentage(10) }} />
             </ScrollView>
 
             {/* Bottom tab */}
@@ -157,7 +175,7 @@ const styles = StyleSheet.create({
         color: '#707070'
     },
     introTextContainer: {
-        marginTop: RFPercentage(3),
+        marginTop: RFPercentage(1.5),
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center'

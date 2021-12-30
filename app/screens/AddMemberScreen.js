@@ -74,12 +74,12 @@ function AddMemberScreen(props) {
         <Screen style={styles.screen}>
 
             {/* Nav */}
-            <View style={{ marginTop: RFPercentage(3), width: '90%', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', alignSelf: 'center' }} >
+            <View style={styles.navContainer} >
                 <TouchableOpacity activeOpacity={0.6}>
                     <Ionicons name="chevron-back" style={{ fontSize: RFPercentage(3.2) }} color={Colors.darkBlack} />
                 </TouchableOpacity>
                 {/* Button */}
-                <TouchableOpacity activeOpacity={0.8} style={{ width: RFPercentage(17), height: RFPercentage(5), justifyContent: 'center', alignItems: 'center', position: 'absolute', right: RFPercentage(0), backgroundColor: Colors.primary, borderRadius: RFPercentage(3) }} >
+                <TouchableOpacity activeOpacity={0.8} style={styles.addToButton} >
                     <Text style={{ color: Colors.white, fontSize: RFPercentage(2.2) }} >
                         + Add to
                     </Text>
@@ -90,7 +90,7 @@ function AddMemberScreen(props) {
             <ScrollView style={{ flex: 1, width: '100%' }} >
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
 
-                    <View style={{ marginTop: RFPercentage(4), width: '90%', justifyContent: 'flex-start', alignItems: 'center', alignSelf: 'center', flexDirection: 'row' }} >
+                    <View style={styles.headingContainer} >
                         <Text style={{ color: Colors.black, fontSize: RFPercentage(2.4), fontWeight: Platform.OS == 'android' ? 'bold' : '700' }} >
                             Recent Contacts
                         </Text>
@@ -103,17 +103,17 @@ function AddMemberScreen(props) {
                         ))}
                     </View>
 
-                    <View style={{ marginTop: RFPercentage(4), width: '90%', justifyContent: 'flex-start', alignItems: 'center', alignSelf: 'center', flexDirection: 'row' }} >
+                    <View style={styles.headingContainer} >
                         <Text style={{ color: Colors.black, fontSize: RFPercentage(2.4), fontWeight: Platform.OS == 'android' ? 'bold' : '700' }} >
                             Subjects
                         </Text>
                     </View>
 
                     {/* Grey Box */}
-                    <View style={{ width: '90%', height: RFPercentage(45), borderRadius: RFPercentage(2), backgroundColor: '#EEEEEE', marginTop: RFPercentage(2) }} >
+                    <View style={styles.greyContainer} >
 
                         {/* Buttons */}
-                        <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '90%', alignSelf: 'center', marginTop: RFPercentage(2) }} >
+                        <View style={styles.buttonsContainer} >
                             {toggleButtons.map((item, i) => (
                                 <TouchableOpacity key={i} activeOpacity={0.6} style={{ marginLeft: !i == 0 ? RFPercentage(1) : RFPercentage(-1), backgroundColor: Colors.primary, borderRadius: RFPercentage(1), width: RFPercentage(11), height: RFPercentage(5), justifyContent: 'center', alignItems: 'center' }} >
                                     <Text style={{ color: Colors.white, fontSize: RFPercentage(2) }} >
@@ -166,6 +166,47 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: Colors.lightWhite
     },
+    navContainer: {
+        marginTop: RFPercentage(3),
+        width: '90%',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexDirection: 'row',
+        alignSelf: 'center'
+    },
+    addToButton: {
+        width: RFPercentage(17),
+        height: RFPercentage(5),
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'absolute',
+        right: RFPercentage(0),
+        backgroundColor: Colors.primary,
+        borderRadius: RFPercentage(3)
+    },
+    headingContainer: {
+        marginTop: RFPercentage(4),
+        width: '90%',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        alignSelf: 'center',
+        flexDirection: 'row'
+    },
+    greyContainer: {
+        width: '90%',
+        height: RFPercentage(45),
+        borderRadius: RFPercentage(2),
+        backgroundColor: '#EEEEEE',
+        marginTop: RFPercentage(2)
+    },
+    buttonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        width: '90%',
+        alignSelf: 'center',
+        marginTop: RFPercentage(2)
+    }
 })
 
 export default AddMemberScreen;

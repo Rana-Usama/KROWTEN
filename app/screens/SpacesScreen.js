@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, ImageBackground, TouchableOpacity, StyleSheet, Platform, ScrollView } from 'react-native'
+import { View, Text, Image, ImageBackground, TouchableOpacity, StyleSheet, Platform, ScrollView } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -37,7 +37,7 @@ function SpacesScreen(props) {
         <Screen style={styles.screen}>
 
             {/* Nav */}
-            <View style={{ marginTop: RFPercentage(2.5), width: '90%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
+            <View style={styles.navContainer} >
                 <TouchableOpacity activeOpacity={0.6} style={{ position: 'absolute', left: 0 }}>
                     <Ionicons name="chevron-back" style={{ fontSize: RFPercentage(3.2) }} color={Colors.darkBlack} />
                 </TouchableOpacity>
@@ -132,6 +132,14 @@ const styles = StyleSheet.create({
         bottom: 0,
         backgroundColor: "rgba(0,0,0,0.1)"
     },
+    navContainer: {
+        marginTop: RFPercentage(2.5),
+        width: '90%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center'
+    }
 })
 
 export default SpacesScreen;

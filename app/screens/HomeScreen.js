@@ -34,7 +34,7 @@ function HomeScreen(props) {
         <Screen style={styles.screen}>
 
             {/* Nav */}
-            <View style={{ marginTop: RFPercentage(5), flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '90%' }} >
+            <View style={styles.navContainer} >
                 {/* Image */}
                 <TouchableOpacity activeOpacity={0.8} >
                     <Image style={{ width: RFPercentage(9), height: RFPercentage(9) }} source={require('../../assets/images/f1.png')} />
@@ -116,6 +116,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: Colors.lightWhite
     },
+    navContainer: {
+        marginTop: RFPercentage(5),
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        width: '90%'
+    }
 })
 
 export default HomeScreen;

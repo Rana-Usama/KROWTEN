@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, ImageBackground, TouchableOpacity, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, Image, ImageBackground, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
 //components
@@ -69,7 +69,7 @@ function SearchRecommendationScreen(props) {
         <Screen style={styles.screen}>
 
             {/* Input Field */}
-            <View style={{ marginTop: RFPercentage(4), alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}>
+            <View style={styles.inputFieldContainer}>
                 {inputField.map((item, i) => (
                     <View key={i} style={{ marginLeft: RFPercentage(0.8) }} >
                         <InputField
@@ -91,7 +91,7 @@ function SearchRecommendationScreen(props) {
             </View>
 
             {/* Tag Line */}
-            <View style={{ width: '90%', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', marginTop: RFPercentage(2) }} >
+            <View style={styles.tagLineContainer} >
                 <Text style={{ color: Colors.black, fontSize: RFPercentage(2.2) }} >
                     What are People talking about
                 </Text>
@@ -101,7 +101,7 @@ function SearchRecommendationScreen(props) {
             <ScrollView style={{ flex: 1, width: '100%' }} >
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     {/* Cart */}
-                    <View style={{ width: '90%', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start', alignSelf: 'center', marginTop: RFPercentage(3) }} >
+                    <View style={styles.cartContainer} >
                         {/* Left Row */}
                         <View style={{ marginRight: RFPercentage(2), width: '50%', justifyContent: 'center', alignItems: 'center' }} >
                             {leftColData.map((item, i) => (
@@ -145,6 +145,27 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: "center",
         backgroundColor: Colors.lightWhite
+    },
+    inputFieldContainer: {
+        marginTop: RFPercentage(4),
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    tagLineContainer: {
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        alignSelf: 'center',
+        marginTop: RFPercentage(2)
+    },
+    cartContainer: {
+        width: '90%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        alignSelf: 'center',
+        marginTop: RFPercentage(3)
     },
     emptyLayer: {
         borderRadius: RFPercentage(1),
