@@ -11,6 +11,7 @@ import SpacesScreen from './app/screens/SpacesScreen';
 import HomeScreen from './app/screens/HomeScreen';
 import SearchRecommendationScreen from './app/screens/SearchRecommendationScreen';
 import AddMemberScreen from './app/screens/AddMemberScreen';
+import ProfileScreen from './app/screens/ProfileScreen';
 
 //components
 import AppDrawer from './app/components/common/AppDrawer';
@@ -27,20 +28,21 @@ export default function App() {
   const HomeDrawer = () => {
     return <Drawer.Navigator screenOptions={{ headerShown: false, drawerPosition: 'right' }} initialRouteName="HomeScreen" overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+      <Drawer.Screen name="NotificationsScreen" component={NotificationsScreen} />
     </Drawer.Navigator>
   }
 
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="RegisterScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="ProfileScreen">
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
         <Stack.Screen name="ConnectScreen" component={ConnectScreen} />
         <Stack.Screen name="HomeDrawer" component={HomeDrawer} />
-        <Stack.Screen name="NotificationsScreen" component={NotificationsScreen} />
         <Stack.Screen name="SpacesScreen" component={SpacesScreen} />
         <Stack.Screen name="SearchRecommendationScreen" component={SearchRecommendationScreen} />
         <Stack.Screen name="AddMemberScreen" component={AddMemberScreen} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

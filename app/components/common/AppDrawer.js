@@ -9,18 +9,13 @@ function AppDrawer({ navigation }) {
     const items = [
         {
             id: 0,
-            label: "Profile",
+            label: "Bookmarks",
             path: "ProfileScreen"
         },
         {
             id: 1,
-            label: "Channel",
+            label: "History",
             path: "MyChannelScreen"
-        },
-        {
-            id: 2,
-            label: "Playlist",
-            path: "VideoHomeScreen"
         },
         {
             id: 3,
@@ -29,23 +24,18 @@ function AppDrawer({ navigation }) {
         },
         {
             id: 4,
-            label: "Advertisement",
+            label: "Settings",
             path: "AdvertisementScreen"
         },
         {
             id: 5,
-            label: "Settings",
+            label: "Messages",
             path: "HomeScreen"
         },
         {
             id: 6,
-            label: "Privacy Policy",
-            path: "MyChannelScreen"
-        },
-        {
-            id: 7,
-            label: "Terms & Conditions",
-            path: "MyChannelScreen"
+            label: "Notification",
+            path: "NotificationsScreen"
         },
 
     ]
@@ -59,7 +49,7 @@ function AppDrawer({ navigation }) {
                         <Image style={{ width: RFPercentage(15), height: RFPercentage(15) }} source={require('../../../assets/images/profile.png')} />
                     </TouchableOpacity>
                     <Text style={{ alignSelf: 'center', marginTop: RFPercentage(1.5), color: Colors.white, fontWeight: 'bold' }} >
-                        Mamie Lang
+                        Robert C
                     </Text>
                     <Text style={{ alignSelf: 'center', marginTop: RFPercentage(0.5), color: '#F8DCDC' }} >
                         abc@mail.com
@@ -70,13 +60,13 @@ function AppDrawer({ navigation }) {
             <ScrollView style={{ flex: 1, width: '100%' }} >
 
                 {items.map((item, index) => (
-                    <View key={index} style={{ marginTop: index === 0 ? RFPercentage(4) : RFPercentage(3.3), justifyContent: 'center', alignItems: "center", flexDirection: 'row' }} >
+                    <View key={index} style={{ marginTop: index === 0 ? RFPercentage(4) : RFPercentage(5), justifyContent: 'center', alignItems: "center", flexDirection: 'row' }} >
                         <Image style={{ width: item.width, height: item.height }} source={item.icon} />
                         <View style={{ alignItems: "center", width: "70%" }} >
                             <TouchableOpacity activeOpacity={0.7} onPress={() => {
                                 navigation.navigate(item.path)
                             }} style={{ alignSelf: "flex-start", flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
-                                <Text style={{ marginLeft: RFPercentage(1.5), color: Colors.black, fontSize: RFPercentage(2.2) }} >{item.label}</Text>
+                                <Text style={{ marginLeft: RFPercentage(1), color: Colors.black, fontSize: RFPercentage(2.2) }} >{item.label}</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -86,7 +76,9 @@ function AppDrawer({ navigation }) {
                 <View style={{ marginLeft: RFPercentage(0.6), marginTop: RFPercentage(3.3), justifyContent: 'center', alignItems: "center", flexDirection: 'row' }} >
                     <View style={{ alignItems: "center", width: "70%" }} >
                         <TouchableOpacity onPress={() => { navigation.navigate('SignInScreen') }} activeOpacity={0.7} style={{ alignSelf: "flex-start", flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
-                            <Text style={{ marginLeft: RFPercentage(1.5), color: Colors.black, fontSize: RFPercentage(2.4) }} >Logout</Text>
+                            <Text style={{ marginLeft: RFPercentage(1), color: Colors.black, fontSize: RFPercentage(2.2) }} >
+                                Logout
+                            </Text>
                         </TouchableOpacity>
                     </View>
                 </View>
