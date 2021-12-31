@@ -26,8 +26,9 @@ export default function App() {
 
 
   const HomeDrawer = () => {
-    return <Drawer.Navigator screenOptions={{ headerShown: false, drawerPosition: 'right' }} initialRouteName="HomeScreen" overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
+    return <Drawer.Navigator screenOptions={{ headerShown: false, drawerPosition: 'right' }} initialRouteName="ProfileScreen" overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+      <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
       <Drawer.Screen name="NotificationsScreen" component={NotificationsScreen} />
     </Drawer.Navigator>
   }
@@ -42,7 +43,6 @@ export default function App() {
         <Stack.Screen name="SpacesScreen" component={SpacesScreen} />
         <Stack.Screen name="SearchRecommendationScreen" component={SearchRecommendationScreen} />
         <Stack.Screen name="AddMemberScreen" component={AddMemberScreen} />
-        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

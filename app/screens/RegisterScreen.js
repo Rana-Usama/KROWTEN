@@ -61,7 +61,7 @@ function RegisterScreen(props) {
             return true;
         }
 
-        props.navigation.navigate("HomeDrawer")
+        props.navigation.navigate("ProfileScreen")
 
         try {
             // API integration
